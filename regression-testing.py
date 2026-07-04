@@ -76,4 +76,4 @@ clf.fit(X_train, y_train)
 clf.score(X_test, y_test)
 
 accuracy_score = clf.score(X_test, y_test)
-#print(accuracy_score)
+print(accuracy_score)
