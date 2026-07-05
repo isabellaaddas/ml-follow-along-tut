@@ -94,3 +94,24 @@ one_day = 86400     # Seconds in a day
 # "Next day", basically (adding all seconds in a day to
 # the last_unix value
 next_unix = last_unix + one_day
+
+# X is our dates, Y is the prices
+
+# Populate the graph with our data and forecasts
+for i in forecast_set:
+    # Iterating through our forecast and day to set the
+    # data frame up with plots and values for the graph
+    next_date = datetime.datetime.fromtimestamp(next_unix)
+    next_unix += one_day
+    # Takes first columns, sets them to NaN and final column
+    # is i
+    df.loc[next_date] = [np.nan for _ in range(len(df.columns)-1)] + [i]
+
+# Using the graphing module, plot the points of our
+# columns and label them accordingly, then show graph
+df['close'].plot()
+df['Forecast'].plot()
+plt.legend(loc=4)
+plt.xlabel('Date')
+plt.ylabel('Price')
+plt.show()
