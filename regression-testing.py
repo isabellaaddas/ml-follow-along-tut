@@ -5,7 +5,7 @@
 ###
 
 # Using stock dataset from Nasdaq Data Link, practicing with Google
-import math
+import math, datetime
 import pandas as pd
 import nasdaqdatalink as ndl
 import numpy as np
@@ -14,6 +14,10 @@ import numpy as np
 from sklearn import preprocessing, svm
 from sklearn.model_selection import cross_validate, train_test_split
 from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
+from matplotlib import style
+
+style.use('ggplot')
 
 ndl.ApiConfig.api_key = "UKgdknEoTdVZdSv9PKLf"
 
