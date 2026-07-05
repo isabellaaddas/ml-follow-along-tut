@@ -89,7 +89,7 @@ df['Forecast'] = np.nan
 
 # Find last date
 last_date = df.iloc[-1].name
-last_unix = last_date.timestamp()
+last_unix = last_date
 one_day = 86400     # Seconds in a day
 # "Next day", basically (adding all seconds in a day to
 # the last_unix value
