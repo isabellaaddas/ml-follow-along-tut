@@ -68,12 +68,14 @@ y = np.array(df['label'])
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # Define classifier and train/fit using features and labels
-clf = LinearRegression()
+clf = LinearRegression(n_jobs=-1)
 #clf = svm.SVR(kernel='poly') <-- example of switching algorithms
 # Fit = train
 # Score = test
 clf.fit(X_train, y_train)
-clf.score(X_test, y_test)
-
 accuracy_score = clf.score(X_test, y_test)
-print(accuracy_score)
+#print(accuracy_score)
+
+# Passing an array of values - predicting per value
+forecast_set = clf.predict(X_lately)
+print(forecast_set, accuracy_score, forecast_out)
