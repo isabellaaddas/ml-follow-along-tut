@@ -83,3 +83,14 @@ accuracy_score = clf.score(X_test, y_test)
 # Passing an array of values - predicting per value
 forecast_set = clf.predict(X_lately)
 print(forecast_set, accuracy_score, forecast_out)
+
+# Entire column is NaN data
+df['Forecast'] = np.nan
+
+# Find last date
+last_date = df.iloc[-1].name
+last_unix = last_date.timestamp()
+one_day = 86400     # Seconds in a day
+# "Next day", basically (adding all seconds in a day to
+# the last_unix value
+next_unix = last_unix + one_day
