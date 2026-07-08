@@ -17,6 +17,9 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 from matplotlib import style
 
+# Pickling: serialization of a Python object
+import pickle
+
 style.use('ggplot')
 
 ndl.ApiConfig.api_key = "UKgdknEoTdVZdSv9PKLf"
@@ -63,7 +66,6 @@ X_lately = X[-forecast_out:]
 
 df.dropna(inplace=True)
 y = np.array(df['label'])
-y = np.array(df['label'])
 
 # Here, we will train and test our data using train_test_split
 # to shuffle the data and use about 20% of it for training
@@ -79,9 +81,24 @@ cv_results = cross_validate(
     scoring=('r2', 'neg_mean_squared_error')
 )
 #clf = svm.SVR(kernel='poly') <-- example of switching algorithms
+
 # Fit = train
 # Score = test
 clf.fit(X_train, y_train)
+
+# Save the trained classifier to save time in the future
+
+# First, dump the classifier into a file that can be
+# written to
+# *** UNCOMMENT TO DUMP TRAINED DATA TO PICKLE FILE AGAIN ***
+# with open('linearregression.pickle', 'wb') as f:
+#    pickle.dump(clf, f)
+
+# To use classifier again, open the file and load the
+# saved training to our classifier
+pickle_in = open('linearregression.pickle', 'rb')
+clf = pickle.load(pickle_in)
+
 accuracy_score = clf.score(X_test, y_test)
 #print(accuracy_score)
 
