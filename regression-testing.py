@@ -55,12 +55,11 @@ df['label'] = df[forecast_col].shift(-forecast_out)
 # Features = X
 # Labels = y
 X = np.array(df.drop(['label'],axis=1))
+# Scale our features together alongside all other values
+X = preprocessing.scale(X)
 X = X[:-forecast_out]
 # What we are predicting against, values we aren't using
 X_lately = X[-forecast_out:]
-
-# Scale our features together alongside all other values
-X = preprocessing.scale(X)
 
 df.dropna(inplace=True)
 y = np.array(df['label'])
@@ -73,6 +72,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # Define classifier and train/fit using features and labels
 clf = LinearRegression(n_jobs=-1)
+# Use cross validation to shuffle training data
+cv_results = cross_validate(
+    clf, X_train, y_train,
+    cv=5,
+    scoring=('r2', 'neg_mean_squared_error')
+)
 #clf = svm.SVR(kernel='poly') <-- example of switching algorithms
 # Fit = train
 # Score = test
