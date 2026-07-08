@@ -15,13 +15,18 @@ ys = np.array([5,4,6,5,6,7], dtype=np.float64)
 # Translate the formula for finding slope (m)
 
 # Define function that will find the best fit slope
-# from our data (m)
-def best_fit_slope(xs, ys):
+# from our data (m) *and intercept (b)
+def best_fit_slope_and_intercept(xs, ys):
     # Define the formula using mean function and
     # power operator
     m = ( ((mean(xs) * mean(ys)) - mean(xs * ys)) /
           ((mean(xs) ** 2) - mean(xs ** 2)) )
 
-    return m
+    # Define the formula using calculated m
+    b = mean(ys) - m * mean(xs)
 
-m = best_fit_slope(xs, ys)
+    return m, b
+
+m, b = best_fit_slope_and_intercept(xs, ys)
+
+print(m, b)
