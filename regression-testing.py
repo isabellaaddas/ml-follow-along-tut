@@ -22,7 +22,7 @@ style.use('ggplot')
 ndl.ApiConfig.api_key = "UKgdknEoTdVZdSv9PKLf"
 
 df = ndl.get_table(datatable_code="WIKI/PRICES",
-                              ticker="TSLA",
+                              ticker="AAPL",
                               paginate=True,
                               api_key=ndl.ApiConfig.api_key)
 df = df[['open', 'high', 'low', 'close', 'volume']]
