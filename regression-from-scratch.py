@@ -6,6 +6,11 @@
 
 from statistics import mean
 import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import style
+
+# Visualize data with plot; set the style
+style.use('fivethirtyeight')
 
 # Use small sets of data for this algorithm (to start)
 # Note: explicitly setting data type for later usage
@@ -34,3 +39,8 @@ m, b = best_fit_slope_and_intercept(xs, ys)
 # For loop will create regression line for all
 # xs in example data using slope-intercept form
 regression_line = [(m*x)+b for x in xs]
+
+# Plot our points and new regression line
+plt.scatter(xs, ys)
+plt.plot(xs, regression_line)
+plt.show()
