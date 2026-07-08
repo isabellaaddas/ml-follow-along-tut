@@ -1,7 +1,7 @@
 ###
 # Following tutorial playlist from @sentdex on YouTube
 # Playlist: Machine Learning with Python
-# Regression Section (videos 2-)
+# Regression Section (videos 2-6)
 ###
 
 # Using stock dataset from Nasdaq Data Link, practicing with Google
