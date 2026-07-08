@@ -29,4 +29,8 @@ def best_fit_slope_and_intercept(xs, ys):
 
 m, b = best_fit_slope_and_intercept(xs, ys)
 
-print(m, b)
+#print(m, b)
+
+# For loop will create regression line for all
+# xs in example data using slope-intercept form
+regression_line = [(m*x)+b for x in xs]
