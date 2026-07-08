@@ -17,6 +17,10 @@ ys = np.array([5,4,6,5,6,7], dtype=np.float64)
 # Define function that will find the best fit slope
 # from our data (m)
 def best_fit_slope(xs, ys):
+    # Define the formula using mean function and
+    # power operator
+    m = ( ((mean(xs) * mean(ys)) - mean(xs * ys)) /
+          ((mean(xs) ** 2) - mean(xs ** 2)) )
 
     return m
 
