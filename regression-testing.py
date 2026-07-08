@@ -25,7 +25,7 @@ df = ndl.get_table(datatable_code="WIKI/PRICES",
                               ticker="AAPL",
                               paginate=True,
                               api_key=ndl.ApiConfig.api_key)
-df = df[['open', 'high', 'low', 'close', 'volume']]
+df = df[['open', 'high', 'low', 'close', 'volume', 'date']]
 
 # Newly defined columns to track daily changes
 df['HL_PCT'] = (df['high'] - df['close']) / df['close'] * 100.0
@@ -94,7 +94,7 @@ df['Forecast'] = np.nan
 
 # Find last date
 last_date = df.iloc[-1].name
-last_unix = last_date
+last_unix = pd.to_datetime(last_date).timestamp()
 one_day = 86400     # Seconds in a day
 # "Next day", basically (adding all seconds in a day to
 # the last_unix value
