@@ -40,7 +40,12 @@ m, b = best_fit_slope_and_intercept(xs, ys)
 # xs in example data using slope-intercept form
 regression_line = [(m*x)+b for x in xs]
 
+# Example prediction
+predict_x = 8
+predict_y = (m * predict_x) + b
+
 # Plot our points and new regression line
 plt.scatter(xs, ys)
+plt.scatter(predict_x, predict_y, color='red')
 plt.plot(xs, regression_line)
 plt.show()
