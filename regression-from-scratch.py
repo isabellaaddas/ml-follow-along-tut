@@ -66,6 +66,8 @@ predict_y = (m * predict_x) + b
 
 r_squared = coefficient_of_determination(ys, regression_line)
 
+#print(r_squared)
+
 # Plot our points and new regression line
 plt.scatter(xs, ys)
 plt.scatter(predict_x, predict_y, color='red')
