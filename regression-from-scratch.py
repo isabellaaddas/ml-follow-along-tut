@@ -8,6 +8,7 @@ from statistics import mean
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import style
+import random
 
 # Visualize data with plot; set the style
 style.use('fivethirtyeight')
