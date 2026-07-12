@@ -15,17 +15,34 @@ style.use('fivethirtyeight')
 
 # Use small sets of data for this algorithm (to start)
 # Note: explicitly setting data type for later usage
-xs = np.array([1,2,3,4,5,6], dtype=np.float64)
-ys = np.array([5,4,6,5,6,7], dtype=np.float64)
+#xs = np.array([1,2,3,4,5,6], dtype=np.float64)
+#ys = np.array([5,4,6,5,6,7], dtype=np.float64)
 
 # Function will create a pseudo-random dataset based on
 # arguments defining features
 # hm = volume of dataset, variance = variance of data
 # step = increase of y-values on avg
-# correlation = pos, neg, or none (to have correlation,
-# set to True; positive requires positive step, negative
-# requires negative step)
-def create_dataset(hm, variance, step=2, correlation=False):
+# correlation = pos, neg, or none (empty string)
+def create_dataset(hm, variance, step=2, correlation=''):
+    val = 1     # First y-value
+    ys = []     # Empty y value list
+
+    # For the amount of data requested, generate y-values
+    # within the range of double the variance added to
+    # the val
+    for i in range(hm):
+        y = val + random.randrange(-variance, variance)
+        ys.append(y)
+        # If there is a correlation, apply it using
+        # step variable on val for the next y in series
+        if correlation and correlation == 'pos':
+            val += step
+        elif correlation and correlation == 'neg':
+            val -= step
+
+    # Generate x-values
+    xs = [i for i in range(len(ys))]
+
     return np.array(xs, dtype=np.float64), np.array(ys, dtype=np.float64)
 
 # Translate the formula for finding slope (m)
@@ -62,6 +79,8 @@ def coefficient_of_determination(ys_orig, ys_line):
 
     # Use both variables to find r^2 (coefficient needed)
     return 1 - (squared_error_regr / squared_error_y_mean)
+
+xs, ys = create_dataset(40, 40, 2, correlation='pos')
 
 m, b = best_fit_slope_and_intercept(xs, ys)
 
