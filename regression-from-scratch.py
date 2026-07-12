@@ -18,6 +18,16 @@ style.use('fivethirtyeight')
 xs = np.array([1,2,3,4,5,6], dtype=np.float64)
 ys = np.array([5,4,6,5,6,7], dtype=np.float64)
 
+# Function will create a pseudo-random dataset based on
+# arguments defining features
+# hm = volume of dataset, variance = variance of data
+# step = increase of y-values on avg
+# correlation = pos, neg, or none (to have correlation,
+# set to True; positive requires positive step, negative
+# requires negative step)
+def create_dataset(hm, variance, step=2, correlation=False):
+    return np.array(xs, dtype=np.float64), np.array(ys, dtype=np.float64)
+
 # Translate the formula for finding slope (m)
 
 # Define function that will find the best fit slope
