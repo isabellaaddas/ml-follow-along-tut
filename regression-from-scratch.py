@@ -32,6 +32,26 @@ def best_fit_slope_and_intercept(xs, ys):
 
     return m, b
 
+# Function finds squared error to use for determining how
+# good our best-fit line is for our data
+def squared_error(ys_orig, ys_line):
+    # Return squared error of entire line
+    return sum((ys_line - ys_orig) ** 2)
+
+# Function finds coefficient of determination
+def coefficient_of_determination(ys_orig, ys_line):
+    # Calculates the mean of every individual y value
+    # in our data, creating a new line of all means
+    y_mean_line = [mean(ys_orig) for y in ys_orig]
+
+    # Find squared error of the regression line and the
+    # y mean line
+    squared_error_regr = squared_error(ys_orig, ys_line)
+    squared_error_y_mean = squared_error(ys_orig, y_mean_line)
+
+    # Use both variables to find r^2 (coefficient needed)
+    return 1 - (squared_error_regr / squared_error_y_mean)
+
 m, b = best_fit_slope_and_intercept(xs, ys)
 
 #print(m, b)
@@ -43,6 +63,8 @@ regression_line = [(m*x)+b for x in xs]
 # Example prediction
 predict_x = 8
 predict_y = (m * predict_x) + b
+
+r_squared = coefficient_of_determination(ys, regression_line)
 
 # Plot our points and new regression line
 plt.scatter(xs, ys)
