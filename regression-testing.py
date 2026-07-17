@@ -48,7 +48,7 @@ df.fillna(-9999, inplace=True)
 # Generally, regression is for forecasting out
 # math.ceil used like this will round up the length of
 # df to predict the price out some number of days
-forecast_out = int(math.ceil(0.01 * len(df)))
+forecast_out = int(math.ceil(0.1 * len(df)))
 
 # Labels!
 # Shift the columns negatively so it shows X number of
