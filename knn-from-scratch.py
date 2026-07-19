@@ -4,12 +4,13 @@
 # K-Nearest Neighbor Section (from scratch) (videos 16-)
 ###
 
+import numpy as np
 from math import sqrt
 
 # Instantiate plot points for demonstrating euclidean
 # distance
-plot1 = [1,3]
-plot2 = [2,5]
+#plot1 = [1,3]
+#plot2 = [2,5]
 
 # Utilize the sqrt method from math module to perform
 # Euclidean distance calculation on example points
