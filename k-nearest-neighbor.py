@@ -5,7 +5,8 @@
 ###
 
 import numpy as np
-from sklearn import preprocessing, cross_validation, neighbors
+from sklearn import preprocessing, neighbors
+from sklearn.model_selection import cross_validate, train_test_split
 import pandas as pd
 
 # Read dataframe into program from file
@@ -24,4 +25,4 @@ X = np.array(df.drop(['class'],1))  # X is everything but class
 y = np.array(df['class'])
 
 # Test and train X and y
-X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
