@@ -12,4 +12,9 @@ import pandas as pd
 df = pd.read_csv('./k-nearest-files/breast-cancer-wisconsin.data')
 
 # Replace missing data, denoted by "?", as some tangible #
+# (recognized as outlier instead)
 df.replace('?', -99999, inplace=True)
+
+# Remove the id column from dataframe, will only mess up
+# our calculations currently
+df.drop(['id'], 1, inplace=True)
