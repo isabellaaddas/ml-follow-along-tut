@@ -6,6 +6,10 @@
 
 import numpy as np
 from math import sqrt
+import matplotlib.pyplot as plt
+import warnings
+from matplotlib import style
+from collections import Counter
 
 # Instantiate plot points for demonstrating euclidean
 # distance
@@ -14,7 +18,7 @@ from math import sqrt
 
 # Utilize the sqrt method from math module to perform
 # Euclidean distance calculation on example points
-euclidean_distance = sqrt((plot1[0] - plot2[0])**2 +
-                          (plot1[1] - plot2[1])**2)
+#euclidean_distance = sqrt((plot1[0] - plot2[0])**2 +
+#                          (plot1[1] - plot2[1])**2)
 
 #print(euclidean_distance)
