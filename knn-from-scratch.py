@@ -14,6 +14,10 @@ from collections import Counter
 # Use 538 style for graph
 style.use('fivethirtyeight')
 
+# Create a dictionary for our dataset
+# k is a class (a list of lists)
+# r is a class corresponding to k's features
+dataset = {'k': [[1,2], [2,3], [3,1]], 'r': [[6,5], [5,7], [8,6]]}
 
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
