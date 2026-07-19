@@ -1,7 +1,7 @@
 ###
 # Following tutorial playlist from @sentdex on YouTube
 # Playlist: Machine Learning with Python
-# K-Nearest Neighbor Section (videos 14-)
+# K-Nearest Neighbor Section (video 14)
 ###
 
 import numpy as np
@@ -37,7 +37,7 @@ accuracy = clf.score(X_test, y_test)
 #print(accuracy)
 
 # Make an example to predict with
-example_measures = np.array([4,2,1,1,1,2,3,2,1])
+example_measures = np.array([[4,2,1,1,1,2,3,2,1]])
 # Reshape data (important for data with single sample)
 example_measures = example_measures.reshape(len(example_measures),-1)
 # Use predict method to predict with example
