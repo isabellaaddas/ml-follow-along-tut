@@ -29,11 +29,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # Set up our classifier
 clf = neighbors.KNeighborsClassifier()
-
 # Then fit with trained data
 clf.fit(X_train, y_train)
-
 # And score on test data
 accuracy = clf.score(X_test, y_test)
 
 #print(accuracy)
+
+# Make an example to predict with
+example_measures = np.array([4,2,1,1,1,2,3,2,1])
