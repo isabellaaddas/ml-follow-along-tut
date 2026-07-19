@@ -11,6 +11,13 @@ import warnings
 from matplotlib import style
 from collections import Counter
 
+# Use 538 style for graph
+style.use('fivethirtyeight')
+
+
+
+# *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
+
 # Instantiate plot points for demonstrating euclidean
 # distance
 #plot1 = [1,3]
