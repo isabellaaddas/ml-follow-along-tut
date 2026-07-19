@@ -26,3 +26,12 @@ y = np.array(df['class'])
 
 # Test and train X and y
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Set up our classifier
+clf = neighbors.KNeighborsClassifier()
+
+# Then fit with trained data
+clf.fit(X_train, y_train)
+
+# And score on test data
+accuracy = clf.score(X_test, y_test)
