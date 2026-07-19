@@ -18,10 +18,10 @@ df.replace('?', -99999, inplace=True)
 
 # Remove the id column from dataframe, will only mess up
 # our calculations currently
-df.drop(['id'], 1, inplace=True)
+df.drop(['id'], axis=1, inplace=True)
 
 # Define Xs and ys (features and labels/class)
-X = np.array(df.drop(['class'],1))  # X is everything but class
+X = np.array(df.drop(['class'], axis=1))  # X is everything but class
 y = np.array(df['class'])
 
 # Test and train X and y
