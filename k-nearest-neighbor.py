@@ -38,6 +38,8 @@ accuracy = clf.score(X_test, y_test)
 
 # Make an example to predict with
 example_measures = np.array([4,2,1,1,1,2,3,2,1])
+# Reshape data (important for data with single sample)
+example_measures = example_measures.reshape(1,-1)
 # Use predict method to predict with example
 prediction = clf.predict(example_measures)
 
