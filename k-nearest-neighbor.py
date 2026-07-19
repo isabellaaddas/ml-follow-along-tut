@@ -18,3 +18,10 @@ df.replace('?', -99999, inplace=True)
 # Remove the id column from dataframe, will only mess up
 # our calculations currently
 df.drop(['id'], 1, inplace=True)
+
+# Define Xs and ys (features and labels/class)
+X = np.array(df.drop(['class'],1))  # X is everything but class
+y = np.array(df['class'])
+
+# Test and train X and y
+X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
