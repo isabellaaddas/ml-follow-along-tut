@@ -71,6 +71,14 @@ def k_nearest_neighbors(data, predict, k=3):
     # k shortest distances (by default, 3)
     votes = [i[1] for i in sorted(distances)[:k]]
 
+    # Using Counter module, the result is the most
+    # common group
+    # 1 = only grab THE most common, return 1 value
+    # [0][0] will specifically return a piece of data
+    # containing the most common group and how many were
+    # in that group (most_common() returns a list of lists)
+    vote_result = Counter(votes).most_common(1)[0][0]
+
     return vote_result
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
