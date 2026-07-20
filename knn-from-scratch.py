@@ -30,6 +30,9 @@ for i in dataset:
     for ii in dataset[i]:
         # For every point in our dataset, scatter it on
         # our pyplot graph
+        # s = size
+        # color will correspond to each class so they
+        # remain distinct on graph
         plt.scatter(ii[0], ii[1], s=100, color=i)
 
 # Show the newly populated graph
