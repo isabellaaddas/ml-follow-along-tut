@@ -74,12 +74,16 @@ def k_nearest_neighbors(data, predict, k=3):
     # Using Counter module, the result is the most
     # common group
     # 1 = only grab THE most common, return 1 value
-    # [0][0] will specifically return a piece of data
-    # containing the most common group and how many were
-    # in that group (most_common() returns a list of lists)
+    # [0][0] will specifically return a tuple
+    # containing the most common group and amount
+    # (most_common() returns a list of tuples)
     vote_result = Counter(votes).most_common(1)[0][0]
 
     return vote_result
+
+result = k_nearest_neighbors(dataset, new_features)
+print(result)
+
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
