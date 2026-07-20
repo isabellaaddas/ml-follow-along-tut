@@ -25,18 +25,20 @@ new_features = [5,7]
 # Create for loop to iterate through the classes in our
 # dataset, accessing each feature in each class
 # i = class ('k', 'r')
-for i in dataset:
+#for i in dataset:
     # ii = feature set ([1,2], etc.)
-    for ii in dataset[i]:
+#    for ii in dataset[i]:
         # For every point in our dataset, scatter it on
         # our pyplot graph
         # s = size
         # color will correspond to each class so they
         # remain distinct on graph
-        plt.scatter(ii[0], ii[1], s=100, color=i)
+#        plt.scatter(ii[0], ii[1], s=100, color=i)
 
 # Show the newly populated graph
-plt.show()
+#plt.show()
+
+
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
