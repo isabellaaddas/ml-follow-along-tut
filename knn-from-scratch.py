@@ -22,6 +22,16 @@ dataset = {'k': [[1,2], [2,3], [3,1]], 'r': [[6,5], [5,7], [8,6]]}
 # Add new features for the scenario
 new_features = [5,7]
 
+# Create for loop to iterate through the classes in our
+# dataset, accessing each feature in each class
+# i = class ('k', 'r')
+for i in dataset:
+    # ii = feature set ([1,2], etc.)
+    for ii in dataset[i]:
+        # For every point in our dataset, scatter it on
+        # our pyplot graph
+        plt.scatter(ii[0], ii[1], s=100, color=i)
+
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
