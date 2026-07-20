@@ -19,6 +19,8 @@ style.use('fivethirtyeight')
 # r is a class corresponding to k's features
 dataset = {'k': [[1,2], [2,3], [3,1]], 'r': [[6,5], [5,7], [8,6]]}
 
+# Add new features for the scenario
+new_features = [5,7]
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
