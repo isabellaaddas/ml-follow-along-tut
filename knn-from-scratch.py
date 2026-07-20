@@ -64,6 +64,13 @@ def k_nearest_neighbors(data, predict, k=3):
             # our distances
             distances.append([euclidean_distance, group])
 
+    # Single-line for loop grabs the top k votes from
+    # a sorted distances list (the smallest distances)
+    # i[1] = group
+    # [:k] splices the sorted list to cut off the first
+    # k shortest distances (by default, 3)
+    votes = [i[1] for i in sorted(distances)[:k]]
+
     return vote_result
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
