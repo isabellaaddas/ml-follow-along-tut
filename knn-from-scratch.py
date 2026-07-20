@@ -48,6 +48,23 @@ def k_nearest_neighbors(data, predict, k=3):
     if len(data) >= k:
         warnings.warn('K is set to a value less than total voting groups!')
 
+    # Create a list of lists for all our distances
+    distances = []
+
+    # For loop iterates through each class in given data
+    # and accesses each of their features (a point)
+    # group = class
+    # features = features of class
+    for group in data:
+        for features in data[group]:
+            # A faster way of calculating utilizes numpy methods
+            # to operate on a dynamic set of data as arrays
+            euclidean_distance = np.linalg.norm(np.array(features) - np.array(predict))
+            # Then add this distance alongside its group to
+            # our distances
+            distances.append([euclidean_distance, group])
+
+    return vote_result
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
