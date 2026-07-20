@@ -32,6 +32,9 @@ for i in dataset:
         # our pyplot graph
         plt.scatter(ii[0], ii[1], s=100, color=i)
 
+# Show the newly populated graph
+plt.show()
+
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
