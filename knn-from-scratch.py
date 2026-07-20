@@ -38,7 +38,15 @@ new_features = [5,7]
 # Show the newly populated graph
 #plt.show()
 
-
+# Function that defines the k-nearest neighbors algorithm
+# that we will be creating and using
+def k_nearest_neighbors(data, predict, k=3):
+    # If we have a dataset with as much or more than
+    # defined in k, send the user a warning that k is
+    # supposed to be a value less than the total number
+    # of classes
+    if len(data) >= k:
+        warnings.warn('K is set to a value less than total voting groups!')
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
