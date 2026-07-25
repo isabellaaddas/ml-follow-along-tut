@@ -88,6 +88,16 @@ train_data = full_data[:-int(test_size*len(full_data))]
 # full_data values to put into test_data
 test_data = full_data[-int(test_size*len(full_data)):]
 
+# Populate train_set with train_data
+# i = the row of data in train_data
+# -1 = the last column in selected row where the tumor
+# signifier lies
+# append(i[:-1]) -> adds the row/list EXCEPT for the
+# attribute itself
+[train_set[i][-1].append(i[:-1]) for i in train_data]
+# (logic copied for test_set)
+[test_set[i][-1].append(i[:-1]) for i in test_data]
+
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
