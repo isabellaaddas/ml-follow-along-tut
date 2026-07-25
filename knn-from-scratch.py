@@ -79,11 +79,14 @@ test_size = 0.2
 train_set = {2:[], 4:[]}
 test_set = {2:[], 4:[]}
 
-# Take number of values corresponding to the
-# percentage (defined as test_size) of full_data's
-# length (20% of full data in this case)
-# int() call to correct final value for splicing
+# Take the first 80% of full_data values into test_data
+# by using the test data size (test_size) as a *stop*
+# value
 train_data = full_data[:-int(test_size*len(full_data))]
+
+# Take the remaining 20% (defined by test_size) from
+# full_data values to put into test_data
+test_data = full_data[-int(test_size*len(full_data)):]
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
