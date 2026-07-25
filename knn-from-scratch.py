@@ -3,6 +3,7 @@
 # Playlist: Machine Learning with Python
 # K-Nearest Neighbor Section (from scratch) (videos 16-)
 ###
+from functools import total_ordering
 
 import numpy as np
 from math import sqrt
@@ -97,6 +98,36 @@ test_data = full_data[-int(test_size*len(full_data)):]
 [train_set[i][-1].append(i[:-1]) for i in train_data]
 # (logic copied for test_set)
 [test_set[i][-1].append(i[:-1]) for i in test_data]
+
+# Initialize counter variables
+correct = 0
+total = 0
+
+# For each group in the test set (2 and 4)
+for group in test_set:
+    # Inner for-loop accesses each set of data
+    # in each group
+    for data in test_set[group]:
+        # Calculate the vote value using train_set,
+        # using the data in the test_set as the
+        # prediction value to find if the prediction
+        # was wrong or right
+        vote = k_nearest_neighbors(train_set, data, k=5)
+
+        # If the group the data came from is equal to
+        # the vote (row of data that is classified as
+        # '2' was correctly identified as a member
+        # of the '2' class), correct counter increases
+        if group == vote:
+            correct += 1
+
+        # Regardless of the result, our total counter
+        # increases on each pass
+        total += 1
+
+# Print the accuracy of our results, which is simply
+# the ratio of correct results to total results
+print('Accuracy:', correct/total)
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
