@@ -54,9 +54,11 @@ def k_nearest_neighbors(data, predict, k=3):
 
     return vote_result
 
-result = k_nearest_neighbors(dataset, new_features)
-print(result)
+# Read in the data file and save it to our dataframe
+df = pd.read_csv('./k-nearest-files/breast-cancer-wisconsin.data')
 
+# Replace all '?' values with outlier value
+df.replace('?', -99999, inplace=True)
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
