@@ -79,6 +79,12 @@ test_size = 0.2
 train_set = {2:[], 4:[]}
 test_set = {2:[], 4:[]}
 
+# Take number of values corresponding to the
+# percentage (defined as test_size) of full_data's
+# length (20% of full data in this case)
+# int() call to correct final value for splicing
+train_data = full_data[:-int(test_size*len(full_data))]
+
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
