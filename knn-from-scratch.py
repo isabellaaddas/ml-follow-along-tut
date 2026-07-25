@@ -68,6 +68,17 @@ df.drop(['id'], axis=1, inplace=True)
 # to a float
 full_data = df.astype(float).values.tolist()
 
+# Use the random module to shuffle the data
+random.shuffle(full_data)
+
+# Define the size of our test and initialize both
+# the train and test sets as empty lists
+# (where the keys are the signifiers for benign or
+# malignant tumors)
+test_size = 0.2
+train_set = {2:[], 4:[]}
+test_set = {2:[], 4:[]}
+
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
