@@ -60,6 +60,14 @@ df = pd.read_csv('./k-nearest-files/breast-cancer-wisconsin.data')
 # Replace all '?' values with outlier value
 df.replace('?', -99999, inplace=True)
 
+# Drop the entire ID column from set
+df.drop(['id'], axis=1, inplace=True)
+
+# To correct for some values coming in as strings or
+# other value, copy data where every value is converted
+# to a float
+full_data = df.astype(float).values.tolist()
+
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
 # Instantiate plot points for demonstrating euclidean
