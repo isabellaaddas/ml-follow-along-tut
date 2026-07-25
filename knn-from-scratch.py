@@ -6,37 +6,8 @@
 
 import numpy as np
 from math import sqrt
-import matplotlib.pyplot as plt
 import warnings
-from matplotlib import style
 from collections import Counter
-
-# Use 538 style for graph
-style.use('fivethirtyeight')
-
-# Create a dictionary for our dataset
-# k is a class (a list of lists)
-# r is a class corresponding to k's features
-dataset = {'k': [[1,2], [2,3], [3,1]], 'r': [[6,5], [5,7], [8,6]]}
-
-# Add new features for the scenario
-new_features = [5,7]
-
-# Create for loop to iterate through the classes in our
-# dataset, accessing each feature in each class
-# i = class ('k', 'r')
-#for i in dataset:
-    # ii = feature set ([1,2], etc.)
-#    for ii in dataset[i]:
-        # For every point in our dataset, scatter it on
-        # our pyplot graph
-        # s = size
-        # color will correspond to each class so they
-        # remain distinct on graph
-#        plt.scatter(ii[0], ii[1], s=100, color=i)
-
-# Show the newly populated graph
-#plt.show()
 
 # Function that defines the k-nearest neighbors algorithm
 # that we will be creating and using
