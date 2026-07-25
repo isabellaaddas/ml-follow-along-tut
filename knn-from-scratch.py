@@ -8,6 +8,8 @@ import numpy as np
 from math import sqrt
 import warnings
 from collections import Counter
+import pandas as pd
+import random
 
 # Function that defines the k-nearest neighbors algorithm
 # that we will be creating and using
@@ -54,6 +56,7 @@ def k_nearest_neighbors(data, predict, k=3):
 
 result = k_nearest_neighbors(dataset, new_features)
 print(result)
+
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
 
