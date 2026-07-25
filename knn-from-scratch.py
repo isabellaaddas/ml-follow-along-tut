@@ -95,9 +95,9 @@ test_data = full_data[-int(test_size*len(full_data)):]
 # signifier lies
 # append(i[:-1]) -> adds the row/list EXCEPT for the
 # attribute itself
-[train_set[i][-1].append(i[:-1]) for i in train_data]
+[train_set[i[-1]].append(i[:-1]) for i in train_data]
 # (logic copied for test_set)
-[test_set[i][-1].append(i[:-1]) for i in test_data]
+[test_set[i[-1]].append(i[:-1]) for i in test_data]
 
 # Initialize counter variables
 correct = 0
