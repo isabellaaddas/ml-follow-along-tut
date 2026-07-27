@@ -61,7 +61,7 @@ def k_nearest_neighbors(data, predict, k=3):
     # (dividing by k will give confidence as percentage)
     confidence = Counter(votes).most_common(1)[0][1] / k
 
-    return vote_result
+    return vote_result, confidence
 
 # Read in the data file and save it to our dataframe
 df = pd.read_csv('./k-nearest-files/breast-cancer-wisconsin.data')
@@ -120,7 +120,7 @@ for group in test_set:
         # using the data in the test_set as the
         # prediction value to find if the prediction
         # was wrong or right
-        vote = k_nearest_neighbors(train_set, data, k=5)
+        vote, confidence = k_nearest_neighbors(train_set, data, k=5)
 
         # If the group the data came from is equal to
         # the vote (row of data that is classified as
@@ -128,6 +128,11 @@ for group in test_set:
         # of the '2' class), correct counter increases
         if group == vote:
             correct += 1
+        else:
+            # Print the confidence (second return item
+            # from k-nearest-neighbors) for each
+            # incorrect prediction
+            print(confidence)
 
         # Regardless of the result, our total counter
         # increases on each pass
