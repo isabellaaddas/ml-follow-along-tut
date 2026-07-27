@@ -53,6 +53,14 @@ def k_nearest_neighbors(data, predict, k=3):
     # (most_common() returns a list of tuples)
     vote_result = Counter(votes).most_common(1)[0][0]
 
+    # Using Counter module, the confidence uses the
+    # result of the votes to determine certainty of
+    # specific prediction
+    # [0][1] will specifically return the frequency
+    # of that most-frequent value (the count)
+    # (dividing by k will give confidence as percentage)
+    confidence = Counter(votes).most_common(1)[0][1] / k
+
     return vote_result
 
 # Read in the data file and save it to our dataframe
@@ -127,6 +135,7 @@ for group in test_set:
 
 # Print the accuracy of our results, which is simply
 # the ratio of correct results to total results
+# (how accurate/correct the predictions were)
 print('Accuracy:', correct/total)
 
 # *** THE FOLLOWING WAS MERELY A DEMONSTRATION ***
