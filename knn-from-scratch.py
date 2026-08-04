@@ -133,11 +133,11 @@ for i in range(25):
             # of the '2' class), correct counter increases
             if group == vote:
                 correct += 1
-            else:
+            #else:      // CURRENTLY UNNEEDED
                 # Print the confidence (second return item
                 # from k-nearest-neighbors) for each
                 # incorrect prediction
-                print(confidence)
+                #print(confidence)
 
             # Regardless of the result, our total counter
             # increases on each pass
@@ -146,7 +146,7 @@ for i in range(25):
     # Print the accuracy of our results, which is simply
     # the ratio of correct results to total results
     # (how accurate/correct the predictions were)
-    print('Accuracy:', correct/total)
+    #print('Accuracy:', correct/total)
     accuracies.append(correct/total)
 
 print(sum(accuracies)/len(accuracies))
