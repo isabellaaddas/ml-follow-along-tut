@@ -15,7 +15,14 @@ class Support_Vector_Machine:
     # Set visualization setting to True by default in
     # order to see the data
     def __init__(self, visualization=True):
-        pass
+        self.visualization = visualization
+        # Assign colors to classes
+        self.colors = {1: 'r', -1: 'b'}
+        # If visualizing, initialize the figure and
+        # subplot for the graph
+        if self.visualization:
+            self.fig = plt.figure()
+            self.ax = self.fig.add_subplot(1, 1, 1)
 
 # Initialize dictionary for data
 # Keys = classes
