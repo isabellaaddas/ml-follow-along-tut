@@ -39,6 +39,8 @@ class Support_Vector_Machine:
                       [1,-1]]
 
         all_data = []
+        # For loops access each feature in all classes
+        # and add it to the all_data list
         # yi = class
         for yi in self.data:
             for featureset in self.data[yi]:
