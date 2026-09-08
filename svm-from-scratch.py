@@ -24,6 +24,16 @@ class Support_Vector_Machine:
             self.fig = plt.figure()
             self.ax = self.fig.add_subplot(1, 1, 1)
 
+    # AKA training the data
+    def fit(self, data):
+        pass
+
+    # Method uses the formula for calculating the
+    # prediction in SVM (sign of x.w+b)
+    def predict(self, features):
+        classification = np.sign(np.dot(np.array(features), self.w) + self.b)
+        return classification
+
 # Initialize dictionary for data
 # Keys = classes
 data_dict = {-1:np.array([[1,7],
