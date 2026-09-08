@@ -9,6 +9,14 @@ from matplotlib import style
 import numpy as np
 style.use('ggplot')
 
+# Create SVM as a class so it can be saved as an object
+# and avoid retraining
+class Support_Vector_Machine:
+    # Set visualization setting to True by default in
+    # order to see the data
+    def __init__(self, visualization=True):
+        pass
+
 # Initialize dictionary for data
 # Keys = classes
 data_dict = {-1:np.array([[1,7],
