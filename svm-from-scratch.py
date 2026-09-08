@@ -26,7 +26,28 @@ class Support_Vector_Machine:
 
     # AKA training the data
     def fit(self, data):
-        pass
+        self.data = data
+
+        # { ||w||: [w,b] }
+        opt_dict = {}
+
+        # To be applied to vector of w, transform it
+        # with these values (getting the product)
+        transforms = [[1,1],
+                      [-1,1],
+                      [-1,-1],
+                      [1,-1]]
+
+        all_data = []
+        # yi = class
+        for yi in self.data:
+            for featureset in self.data[yi]:
+                for feature in featureset:
+                    all_data.append(feature)
+
+        self.max_feature_value = max(all_data)
+        self.min_feature_value = min(all_data)
+        all_data = None
 
     # Method uses the formula for calculating the
     # prediction in SVM (sign of x.w+b)
