@@ -9,9 +9,12 @@ from matplotlib import style
 import numpy as np
 style.use('ggplot')
 
-# Initialize dictionary for data where the keys are
-# classes
+# Initialize dictionary for data
+# Keys = classes
 data_dict = {-1:np.array([[1,7],
                           [2,8],
                           [3,8],]),
-             1:np.array([[1,7],])}
+
+             1:np.array([[5,1],
+                         [6,-1],
+                         [7,3],])}
