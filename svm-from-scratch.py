@@ -73,6 +73,19 @@ class Support_Vector_Machine:
         # (Saves processing cost doing this)
         latest_optimum = self.max_feature_value * 10
 
+        # For loop to iterate through each step in the
+        # step sizes list
+        for step in step_sizes:
+            # Vector w will be set to two same values,
+            # latest optimum in this case
+            w = np.array([latest_optimum, latest_optimum])
+
+            # Can be done because of convex, False until
+            # we run out of steps to take
+            optimized = False
+            while not optimized:
+                pass
+
     # Method uses the formula for calculating the
     # prediction in SVM (sign of x.w+b)
     def predict(self, features):
