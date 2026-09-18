@@ -63,6 +63,10 @@ class Support_Vector_Machine:
                       # going smaller after this)
                       self.max_feature_value * 0.001]
 
+        # Set the b-range; extremely expensive
+        # (in terms of computation)
+        b_range_multiple = 5
+
     # Method uses the formula for calculating the
     # prediction in SVM (sign of x.w+b)
     def predict(self, features):
