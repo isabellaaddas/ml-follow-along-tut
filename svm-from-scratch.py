@@ -66,6 +66,12 @@ class Support_Vector_Machine:
         # Set the b-range; extremely expensive
         # (in terms of computation)
         b_range_multiple = 5
+        b_multiple = 5
+
+        # First element of vector w, which will be set
+        # to max feature value multiplied by 10
+        # (Saves processing cost doing this)
+        latest_optimum = self.max_feature_value * 10
 
     # Method uses the formula for calculating the
     # prediction in SVM (sign of x.w+b)
