@@ -55,6 +55,14 @@ class Support_Vector_Machine:
         # Dump all_data to free up memory after
         all_data = None
 
+        # Find the big steps using max feature value,
+        # continuously scaling down for each smaller step
+        step_sizes = [self.max_feature_value * 0.1,
+                      self.max_feature_value * 0.01,
+                      # Point of expense (useless to keep
+                      # going smaller after this)
+                      self.max_feature_value * 0.001]
+
     # Method uses the formula for calculating the
     # prediction in SVM (sign of x.w+b)
     def predict(self, features):
