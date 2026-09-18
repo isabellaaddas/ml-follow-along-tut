@@ -47,8 +47,12 @@ class Support_Vector_Machine:
                 for feature in featureset:
                     all_data.append(feature)
 
+        # Initialize values for the max and min feature
+        # values
         self.max_feature_value = max(all_data)
         self.min_feature_value = min(all_data)
+
+        # Dump all_data to free up memory after
         all_data = None
 
     # Method uses the formula for calculating the
