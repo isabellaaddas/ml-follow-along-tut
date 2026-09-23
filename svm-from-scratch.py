@@ -65,6 +65,7 @@ class Support_Vector_Machine:
 
         # Set the b-range; extremely expensive
         # (in terms of computation)
+        # Don't need to take as small of steps as w
         b_range_multiple = 5
         b_multiple = 5
 
@@ -83,8 +84,41 @@ class Support_Vector_Machine:
             # Can be done because of convex, False until
             # we run out of steps to take
             optimized = False
+            # Iterate through b
             while not optimized:
-                pass
+                # arange() to define how much of a step
+                # to take at a time
+                # b multiples defined as 5 to reduce cost
+                for b in np.arange(-1*(self.max_feature_value * b_range_multiple),
+                                   self.max_feature_value * b_range_multiple,
+                                   step*b_multiple):
+                    # For each transformation, apply w
+                    for transformation in transforms:
+                        w_t = w * transforms
+                        found_option = True
+                        # Weakest link in algorithm
+                        # i is the class
+                        for i in self.data:
+                            for xi in self.data[i]:
+                                yi = i
+                                # If a sample does not fit definition,
+                                # found_option no longer true (should
+                                # be broken immediately))
+                                if not yi*(np.dot(w_t, xi) + b) >= 1:
+                                    found_option = False
+
+                        # If found_option still true, all samples fit
+                        # definition
+                        if found_option:
+                            opt_dict[np.linalg.norm(w_t)] = [w_t, b]
+
+            # "Step optimized"
+            if w[0] < 0:
+                optimized = True
+                print('Optimized a step.')
+            else:
+                # Ex: [5, 5] becomes [4, 4]
+                w = w - step
 
     # Method uses the formula for calculating the
     # prediction in SVM (sign of x.w+b)
